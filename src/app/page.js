@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import InputTextBar from "./components/InputChatBar";
 
 export default function Home() {
@@ -11,7 +12,11 @@ export default function Home() {
             {/* --- Left Sidebar --- */}
             <div className="w-1/4 border-r h-screen overflow-y-scroll">
             <div className="flex items-center justify-start bg-white space-x-4 mb-4 p-4 shadow-md h-20">
-              <img src="https://www.yakchat.com/yakchat-logo-horizontal.svg" className="pl-5 absolute bg-white p-4"/>
+              <Image
+              src="https://www.yakchat.com/yakchat-logo-horizontal.svg" className="pl-5 absolute bg-white p-4"
+              width={300}
+              height={200}
+              />
             </div>
               {/* Rows */}
               <div className="space-y-5">
