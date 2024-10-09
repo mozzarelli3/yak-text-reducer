@@ -9,6 +9,7 @@ export default function Home() {
       <div className="">
         <div className="interface">
           <div className="min-h-screen flex">
+
             {/* --- Left Sidebar --- */}
             <div className="w-1/4 border-r h-screen overflow-y-scroll">
             <div className="flex items-center justify-start bg-white space-x-4 mb-4 p-4 shadow-md h-20">
@@ -18,9 +19,9 @@ export default function Home() {
               className="pl-5 absolute bg-white p-4"
               width={300}
               height={200}
-
               />
             </div>
+
               {/* Rows */}
               <div className="space-y-5">
                 {Array.from({ length: 20 }).map((_, index) => (
@@ -33,9 +34,10 @@ export default function Home() {
                 ))}
               </div>
             </div>
-
+            
             {/* --- Right Content Area --- */}
             <div className="w-3/4 bg-offwhite shadow-md relative">
+
               {/* Top bar with circle icon */}
               <div className="flex items-center justify-start bg-white space-x-4 mb-4 p-4 shadow-md h-20">
                 <div className="h-10 w-10 bg-purple-300 rounded-full "></div>
@@ -50,7 +52,7 @@ export default function Home() {
                 <div className="bg-white h-24 rounded-tl-2xl rounded-tr-2xl rounded-br-2xl shadow-md p-4 w-1/3"></div>
                 <div className="bg-yakyellow h-24 rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl shadow-md p-4 w-1/4 ml-auto"></div>
               </div>
-
+              
               {/* InputTextBar container */}
               <div className="absolute bottom-0 left-0 w-full bg-white h-24 px-4 shadow-2xl place-content-center">
                 <InputTextBar />
