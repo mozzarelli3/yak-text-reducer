@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { ArrowUp, WandSparkles } from 'lucide-react';
+import React, { useState } from "react";
+import SummaryDisplay from "./components/SummaryDisplay";
+import { ArrowUp, WandSparkles } from "lucide-react";
 
 const InputTextBar = ({ placeholder, onInputChange }) => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const [showAIButton, setShowAIButton] = useState(false);
+  const [showAISummary, setShowAISummary] = useState(false);
 
   const handleInputChange = (event) => {
     const value = event.target.value;
@@ -15,10 +17,15 @@ const InputTextBar = ({ placeholder, onInputChange }) => {
     } else {
       setShowAIButton(false);
     }
-
+    
     if (onInputChange) {
       onInputChange(value);
     }
+  };
+
+  // Toggle AISummary visibility on AI button click
+  const handleAIClick = () => {
+    setShowAISummary(true);
   };
 
   return (
@@ -26,23 +33,24 @@ const InputTextBar = ({ placeholder, onInputChange }) => {
       <input
         type="text"
         className="flex-grow bg-offwhite border border-outline rounded-xl p-2 focus:outline-none"
-        placeholder={placeholder || 'Enter text...'}
+        placeholder={placeholder || "Enter text..."}
         value={inputValue}
         onChange={handleInputChange}
       />
       {showAIButton && (
-        <button className="absolute right-20 bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md">
+        <button
+          className="absolute right-20 bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md"
+          onClick={handleAIClick}
+        >
           <WandSparkles />
         </button>
       )}
-      
-      <button
-        className="bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md"
-      >
+
+      <button className="bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md">
         <ArrowUp />
       </button>
 
-      
+      {showAISummary && <SummaryDisplay />}
     </div>
   );
 };

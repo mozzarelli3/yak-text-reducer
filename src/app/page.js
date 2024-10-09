@@ -5,6 +5,7 @@ import InputTextBar from "./components/InputChatBar";
 
 export default function Home() {
   return (
+
     <>
       <div className="">
         <div className="interface">
