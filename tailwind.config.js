@@ -12,6 +12,7 @@ module.exports = {
         foreground: "var(--foreground)",
         offwhite: "#F8F9F4",
         yakyellow: "#FFED9A",
+        paleyellow: "#FFF9DF",
         outline: "#D5DBBC",
       },
     },

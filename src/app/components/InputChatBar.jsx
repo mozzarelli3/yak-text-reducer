@@ -30,15 +30,16 @@ const InputTextBar = ({ placeholder, onInputChange }) => {
 
   return (
     <div className="w-full relative">
+
       {/* AI Summary Display */}
       {showAISummary && (
-        <div className="mb-4">
+        <div className="bg-white absolute -top-32 left-0 w-full p-4">
           <SummaryDisplay />
         </div>
       )}
 
       {/* Input Bar and Buttons */}
-      <div className="flex items-center space-x-5 pl-2 pr-2">
+      <div className="flex items-center space-x-5 pl-2 pr-2 bg-white relative z-10">
         <input
           type="text"
           className="flex-grow bg-offwhite border border-outline rounded-xl p-2 focus:outline-none"
