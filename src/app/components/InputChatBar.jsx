@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SummaryDisplay from "./components/SummaryDisplay";
+import SummaryDisplay from "./SummaryDisplay";
 import { ArrowUp, WandSparkles } from "lucide-react";
 
 const InputTextBar = ({ placeholder, onInputChange }) => {
@@ -17,7 +17,7 @@ const InputTextBar = ({ placeholder, onInputChange }) => {
     } else {
       setShowAIButton(false);
     }
-    
+
     if (onInputChange) {
       onInputChange(value);
     }
@@ -29,28 +29,36 @@ const InputTextBar = ({ placeholder, onInputChange }) => {
   };
 
   return (
-    <div className="w-full flex items-center space-x-5 pl-2 pr-2">
-      <input
-        type="text"
-        className="flex-grow bg-offwhite border border-outline rounded-xl p-2 focus:outline-none"
-        placeholder={placeholder || "Enter text..."}
-        value={inputValue}
-        onChange={handleInputChange}
-      />
-      {showAIButton && (
-        <button
-          className="absolute right-20 bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md"
-          onClick={handleAIClick}
-        >
-          <WandSparkles />
-        </button>
+    <div className="w-full relative">
+      {/* AI Summary Display */}
+      {showAISummary && (
+        <div className="mb-4">
+          <SummaryDisplay />
+        </div>
       )}
 
-      <button className="bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md">
-        <ArrowUp />
-      </button>
+      {/* Input Bar and Buttons */}
+      <div className="flex items-center space-x-5 pl-2 pr-2">
+        <input
+          type="text"
+          className="flex-grow bg-offwhite border border-outline rounded-xl p-2 focus:outline-none"
+          placeholder={placeholder || "Enter text..."}
+          value={inputValue}
+          onChange={handleInputChange}
+        />
+        {showAIButton && (
+          <button
+            className="absolute right-20 bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md"
+            onClick={handleAIClick}
+          >
+            <WandSparkles />
+          </button>
+        )}
 
-      {showAISummary && <SummaryDisplay />}
+        <button className="bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md">
+          <ArrowUp />
+        </button>
+      </div>
     </div>
   );
 };
