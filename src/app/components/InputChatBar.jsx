@@ -23,7 +23,7 @@ const InputTextBar = ({ placeholder }) => {
   const handleAIClick = async () => {
     try {
       // Make a POST request to the backend summarization API
-      const response = await fetch('https://ai-api-chi.vercel.app/summarise', {
+      const response = await fetch('https://localhost:3000/summarise', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
