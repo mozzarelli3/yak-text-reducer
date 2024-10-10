@@ -28,8 +28,12 @@ export default function Home() {
                 {Array.from({ length: 20 }).map((_, index) => (
                   <div key={index} className="h-12 bg-white border-b shadow-sm">
                     <span className="flex flex row">
-                      <div className="h-8 w-8 bg-gray-300 rounded-full ml-5"></div>
-                      <p className="pl-5">Contact</p>
+                      <div className="h-9 w-9 bg-gray-300 rounded-full ml-7 content-center"></div>
+                      <div>
+                        <div className="h-2 w-28 bg-gray-300 rounded-full ml-10"></div>
+                        <div className="h-2 w-48 bg-gray-200 rounded-full ml-10 mt-4"></div>
+                        {/* <p className="pl-5">Contact</p> */}
+                      </div>
                     </span>
                   </div>
                 ))}

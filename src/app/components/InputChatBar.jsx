@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SummaryDisplay from "./SummaryDisplay";
-import { ArrowUp, WandSparkles } from "lucide-react";
+import { ArrowUp, Sparkles } from "lucide-react";
 
 const InputTextBar = ({ placeholder, onInputChange }) => {
   const [inputValue, setInputValue] = useState("");
@@ -52,7 +52,7 @@ const InputTextBar = ({ placeholder, onInputChange }) => {
             className="absolute right-20 bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md"
             onClick={handleAIClick}
           >
-            <WandSparkles />
+            <Sparkles />
           </button>
         )}
 
