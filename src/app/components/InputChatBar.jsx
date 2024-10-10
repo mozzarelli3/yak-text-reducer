@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import SummaryDisplay from "./SummaryDisplay";
 import { ArrowUp, Sparkles } from "lucide-react";
 
-const InputTextBar = ({ placeholder, onInputChange }) => {
+const InputTextBar = ({ placeholder }) => {
   const [inputValue, setInputValue] = useState("");
   const [showAIButton, setShowAIButton] = useState(false);
   const [showAISummary, setShowAISummary] = useState(false);
+  const [summary, setSummary] = useState(""); // To store the summary
 
   const handleInputChange = (event) => {
     const value = event.target.value;
@@ -17,31 +18,46 @@ const InputTextBar = ({ placeholder, onInputChange }) => {
     } else {
       setShowAIButton(false);
     }
+  };
 
-    if (onInputChange) {
-      onInputChange(value);
+  const handleAIClick = async () => {
+    try {
+      // Make a POST request to the backend summarization API
+      const response = await fetch('https://ai-api-chi.vercel.app/summarise', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: inputValue }),  // Send input text to the backend
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch summary');
+      }
+
+      const data = await response.json();
+
+      // Set the received summary to state
+      setSummary(data.summary);
+
+      // Show the summary on the UI
+      setShowAISummary(true);
+      setShowAIButton(false);
+    } catch (error) {
+      console.error('Error fetching summary:', error);
     }
   };
 
-  // Toggle AISummary visibility on AI button click
-  const handleAIClick = () => {
-    setShowAISummary(true);
-    setShowAIButton(false);
-  };
-
-  // Handle Confirm button click
   const handleConfirm = () => {
-    // Hide summary after confirmation
-    setShowAISummary(false);
+    setShowAISummary(false);  // Hide the summary display when confirmed
   };
 
   return (
     <div className="w-full relative">
-
       {/* AI Summary Display */}
       {showAISummary && (
         <div className="absolute -top-32 left-0 w-full bg-white z-20 p-4">
-          <SummaryDisplay onConfirm={handleConfirm} />
+          <SummaryDisplay summary={summary} onConfirm={handleConfirm} />
         </div>
       )}
 

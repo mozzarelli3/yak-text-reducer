@@ -32,7 +32,6 @@ export default function Home() {
                       <div>
                         <div className="h-2 w-28 bg-gray-300 rounded-full ml-10"></div>
                         <div className="h-2 w-48 bg-gray-200 rounded-full ml-10 mt-4"></div>
-                        {/* <p className="pl-5">Contact</p> */}
                       </div>
                     </span>
                   </div>
@@ -42,13 +41,13 @@ export default function Home() {
             
             {/* --- Right Content Area --- */}
             <div className="w-3/4 bg-offwhite shadow-md relative">
-
+              
               {/* Top bar with circle icon */}
               <div className="flex items-center justify-start bg-white space-x-4 mb-4 p-4 shadow-md h-20">
                 <div className="h-10 w-10 bg-purple-300 rounded-full "></div>
                 <p className="font-bold text-lg">Contact Name</p>
               </div>
-
+              
               {/* Card/Block Elements */}
               <div className="flex flex-col space-y-10 w-full p-4">
                 <div className="bg-yakyellow h-24 rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl shadow-md p-4 w-1/4 ml-auto"></div>
