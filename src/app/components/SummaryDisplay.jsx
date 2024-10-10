@@ -1,10 +1,18 @@
 import React from 'react';
 
-const SummaryDisplay = () => {
+const SummaryDisplay = ({ onConfirm }) => {
   return (
-    <div className="bg-paleyellow p-4 border border-outline rounded-md mt-4">
+    <div className="bg-paleyellow p-4 border border-outline rounded-md relative">
       <h2 className="text-lg font-bold">Summary</h2>
       <p>AI-generated summary of the user-typed text will appear here.</p>
+
+      {/* Confirm button */}
+      <button
+        className="absolute bottom-4 right-4 bg-paleyellow border border-outline px-4 py-2 rounded-lg hover:bg-yakyellow shadow-md place-content-end"
+        onClick={onConfirm}
+      >
+        Confirm
+      </button>
     </div>
   );
 };

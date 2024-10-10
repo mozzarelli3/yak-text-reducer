@@ -12,7 +12,7 @@ const InputTextBar = ({ placeholder, onInputChange }) => {
     setInputValue(value);
 
     // Show AI button if input exceeds 160 characters
-    if (value.length >= 160) {
+    if (value.length >= 160 && !showAISummary) {
       setShowAIButton(true);
     } else {
       setShowAIButton(false);
@@ -26,6 +26,13 @@ const InputTextBar = ({ placeholder, onInputChange }) => {
   // Toggle AISummary visibility on AI button click
   const handleAIClick = () => {
     setShowAISummary(true);
+    setShowAIButton(false);
+  };
+
+  // Handle Confirm button click
+  const handleConfirm = () => {
+    // Hide summary after confirmation
+    setShowAISummary(false);
   };
 
   return (
@@ -33,8 +40,8 @@ const InputTextBar = ({ placeholder, onInputChange }) => {
 
       {/* AI Summary Display */}
       {showAISummary && (
-        <div className="bg-white absolute -top-32 left-0 w-full p-4">
-          <SummaryDisplay />
+        <div className="absolute -top-32 left-0 w-full bg-white z-20 p-4">
+          <SummaryDisplay onConfirm={handleConfirm} />
         </div>
       )}
 
