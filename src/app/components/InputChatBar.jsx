@@ -23,7 +23,7 @@ const InputTextBar = ({ placeholder }) => {
   const handleAIClick = async () => {
     try {
       // Make a POST request to the backend summarization API
-      const response = await fetch('https://localhost:3000/summarise', {
+      const response = await fetch('https://ai-api-7i1d.onrender.com/summarise', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,6 +49,7 @@ const InputTextBar = ({ placeholder }) => {
   };
 
   const handleConfirm = () => {
+    setInputValue(summary);  // Set the input value to the summary
     setShowAISummary(false);  // Hide the summary display when confirmed
   };
 
@@ -56,8 +57,8 @@ const InputTextBar = ({ placeholder }) => {
     <div className="w-full relative">
       {/* AI Summary Display */}
       {showAISummary && (
-        <div className="absolute -top-32 left-0 w-full bg-white z-20 p-4">
-          <SummaryDisplay summary={summary} onConfirm={handleConfirm} />
+        <div className="absolute -top-48 left-0 w-full bg-white z-20 p-4">
+          <SummaryDisplay summary={summary} onConfirm={() => handleConfirm(summary)} />
         </div>
       )}
 

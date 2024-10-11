@@ -44,7 +44,7 @@ export default function Home() {
               
               {/* Top bar with circle icon */}
               <div className="flex items-center justify-start bg-white space-x-4 mb-4 p-4 shadow-md h-20">
-                <div className="h-10 w-10 bg-purple-300 rounded-full "></div>
+                <div className="h-10 w-10 bg-purple-300 rounded-full"></div>
                 <p className="font-bold text-lg">Contact Name</p>
               </div>
               
