@@ -14,6 +14,8 @@ module.exports = {
         yakyellow: "#FFED9A",
         paleyellow: "#FFF9DF",
         outline: "#D5DBBC",
+        red: "#B67878",
+        palered: "#F0E8E8",
       },
     },
   },
