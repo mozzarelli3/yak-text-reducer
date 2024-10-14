@@ -6,7 +6,7 @@ const InputTextBar = ({ placeholder }) => {
   const [inputValue, setInputValue] = useState("");
   const [showAIButton, setShowAIButton] = useState(false);
   const [showAISummary, setShowAISummary] = useState(false);
-  const [summary, setSummary] = useState(""); // To store the summary
+  const [summary, setSummary] = useState("");
 
   const handleInputChange = (event) => {
     const value = event.target.value;
@@ -22,7 +22,7 @@ const InputTextBar = ({ placeholder }) => {
 
   const handleAIClick = async () => {
     try {
-      // Make a POST request to the backend summarization API
+      // Make a POST request to the backend summarisation API
       const response = await fetch('https://ai-api-7i1d.onrender.com/summarise', {
         method: 'POST',
         headers: {
@@ -73,7 +73,7 @@ const InputTextBar = ({ placeholder }) => {
         />
         {showAIButton && (
           <button
-            className="absolute right-20 bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md"
+            className="absolute right-14 bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md"
             onClick={handleAIClick}
           >
             <Sparkles />

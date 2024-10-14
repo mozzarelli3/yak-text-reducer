@@ -12,8 +12,8 @@ export default function Home() {
           <div className="min-h-screen flex">
 
             {/* --- Left Sidebar --- */}
-            <div className="w-1/4 border-r h-screen overflow-y-scroll">
-            <div className="flex items-center justify-start bg-white space-x-4 mb-4 p-4 shadow-md h-20">
+            <div className="w-1/4 border-r h-screen overflow-y-scroll scrollbar-thin">
+            <div className="flex items-center justify-start bg-white space-x-4 mb-4 p-4 shadow-md h-20 sticky top-0">
               <Image
               src="https://www.yakchat.com/yakchat-logo-horizontal.svg"
               alt="YakChat logo"
