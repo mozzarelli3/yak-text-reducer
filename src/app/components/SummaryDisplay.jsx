@@ -2,7 +2,7 @@ import React from 'react';
 
 const SummaryDisplay = ({ summary, isLoading, onConfirm }) => {
   return (
-    <div className="bg-paleyellow p-4 border border-outline rounded-xl relative">
+    <div className="bg-paleyellow p-4 h-44 border border-outline rounded-xl relative">
       <h2 className="text-lg font-bold">Summary</h2>
       {isLoading ? (
         <p>Loading summary...</p>

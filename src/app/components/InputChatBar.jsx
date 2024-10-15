@@ -16,9 +16,9 @@ const InputTextBar = ({ placeholder }) => {
     const value = event.target.value;
     setInputValue(value);
 
-    if (value.length >= 160 && !showAISummary) {
-      setShowAISummary(true);
-    }
+    // if (value.length >= 160) {
+    //   setShowAISummary(true);
+    // }
   };
 
   const handleAIClick = async () => {
@@ -61,7 +61,7 @@ const InputTextBar = ({ placeholder }) => {
 
   return (
     <div className="w-full relative bg-white pt-4 absolute bottom-0 space-y-3">
-      <div className="flex justify-between items-start space-x-4 absolute bottom-20 p-3 bg-white w-full">
+      <div className="flex justify-between items-start space-x-4 absolute bottom-20 p-4 bg-white w-full">
         {/* AI Summary Display */}
         {showAISummary && (
           <div className="flex-grow">
@@ -113,13 +113,16 @@ const InputTextBar = ({ placeholder }) => {
             {inputValue.length}/{charLimit}
           </span>
         </div>
+        
+        {inputValue.length >= 160 && (
         <button
           className="absolute right-16 bg-offwhite border border-outline p-2 rounded-xl space-x-2hover:bg-outline shadow-md"
           onClick={handleAIClick}
         >
           <Sparkles />
         </button>
-
+        )}
+        
         <button className="bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md">
           <ArrowUp />
         </button>
