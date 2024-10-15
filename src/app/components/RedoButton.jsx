@@ -6,7 +6,7 @@ const RedoButton = ({ onRedo }) => {
       className="bg-white px-4 py-2 border border-outline rounded-xl shadow-md w-16 h-9 flex justify-center items-center"
       onClick={onRedo}
     >
-      Redo
+      Retry
     </button>
   );
 };

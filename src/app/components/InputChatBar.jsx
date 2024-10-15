@@ -61,7 +61,7 @@ const InputTextBar = ({ placeholder }) => {
 
   return (
     <div className="w-full relative bg-white pt-4 absolute bottom-0 space-y-3">
-      <div className="flex justify-between items-start space-x-4 absolute bottom-20 p-4 bg-white w-full">
+      <div className="flex justify-between items-start space-x-4 absolute bottom-20 p-2 bg-white w-full">
         {/* AI Summary Display */}
         {showAISummary && (
           <div className="flex-grow">
@@ -94,7 +94,7 @@ const InputTextBar = ({ placeholder }) => {
         
       {/* Input Bar and Buttons */}
       <div
-        className={`absolute bottom-0 w-full px-4 py-3 flex items-center space-x-5 transition-all ${
+        className={`absolute bottom-0 w-full px-2 py-3 flex items-center space-x-5 transition-all ${
           showAISummary
             ? "bg-white " // Styles when AI summary is shown
             : "bg-white " // Styles when AI summary is hidden

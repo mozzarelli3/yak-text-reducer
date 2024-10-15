@@ -58,8 +58,8 @@ export default function Home() {
               </div>
               
               {/* --- AI summary feature --- */}
-              <div className="">
-                
+              <div className="bg-white w-full h-72 p-4 absolute bottom-0">
+
                 {/* InputTextBar container */}
                 <div className="absolute bottom-0 left-0 w-full bg-white px-4 shadow-2xl place-content-center">
                   <InputTextBar />
