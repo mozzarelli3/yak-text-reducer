@@ -15,11 +15,11 @@ export default function Home() {
             <div className="w-1/4 border-r h-screen overflow-y-scroll scrollbar-thin">
             <div className="flex items-center justify-start bg-white space-x-4 mb-4 p-4 shadow-md h-20 sticky top-0">
               <Image
-              src="https://www.yakchat.com/yakchat-logo-horizontal.svg"
-              alt="YakChat logo"
-              className="pl-5 absolute bg-white p-4"
-              width={300}
-              height={200}
+                src="https://www.yakchat.com/yakchat-logo-horizontal.svg"
+                alt="YakChat logo"
+                className="pl-5 absolute bg-white p-4"
+                width={300}
+                height={200}
               />
             </div>
 
@@ -58,7 +58,7 @@ export default function Home() {
               </div>
               
               {/* --- AI summary feature --- */}
-              <div className="bg-white w-full h-72 p-4 absolute bottom-0">
+              <div className=" w-full h-72 bg-white transition-all p-4 absolute bottom-0">
 
                 {/* InputTextBar container */}
                 <div className="absolute bottom-0 left-0 w-full bg-white px-4 shadow-2xl place-content-center">

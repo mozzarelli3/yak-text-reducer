@@ -15,10 +15,6 @@ const InputTextBar = ({ placeholder }) => {
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
-
-    // if (value.length >= 160) {
-    //   setShowAISummary(true);
-    // }
   };
 
   const handleAIClick = async () => {
@@ -72,7 +68,7 @@ const InputTextBar = ({ placeholder }) => {
             />
           </div>
         )}
-
+        
         {/* Character Limit Slider & Close Button */}
         {showAISummary && (
           <div className="w-1/8 flex flex-col space-y-4 items-center">
@@ -85,11 +81,7 @@ const InputTextBar = ({ placeholder }) => {
             {/* Character Limit Slider */}
             <CharacterLimit charLimit={charLimit} setCharLimit={setCharLimit} />
           </div>
-         )}     
-              
-              
-
-        
+         )}        
       </div>
         
       {/* Input Bar and Buttons */}
@@ -132,3 +124,4 @@ const InputTextBar = ({ placeholder }) => {
 };
 
 export default InputTextBar;
+
