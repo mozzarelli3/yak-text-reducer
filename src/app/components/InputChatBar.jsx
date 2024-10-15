@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import SummaryDisplay from "./SummaryDisplay";
 import CharacterLimit from "./CharacterLimit";
-import CloseButton from "./CloseButton"; // Import the new CloseButton component
+import CloseButton from "./CloseButton";
+import RedoButton from "./RedoButton";
 import { ArrowUp, Sparkles } from "lucide-react";
 
 const InputTextBar = ({ placeholder }) => {
@@ -59,11 +60,11 @@ const InputTextBar = ({ placeholder }) => {
   };
 
   return (
-    <div className="w-full relative bg-white pt-4 absolute bottom-24 space-y-3">
-      <div className="flex justify-between items-start space-x-4 pl-2">
+    <div className="w-full relative bg-white pt-4 absolute bottom-0 space-y-3">
+      <div className="flex justify-between items-start space-x-4 absolute bottom-20 p-3 bg-white w-full">
         {/* AI Summary Display */}
         {showAISummary && (
-          <div className="flex-grow"> {/* Removed width restriction */}
+          <div className="flex-grow">
             <SummaryDisplay
               summary={summary}
               isLoading={isLoading}
@@ -74,27 +75,46 @@ const InputTextBar = ({ placeholder }) => {
 
         {/* Character Limit Slider & Close Button */}
         {showAISummary && (
-          <div className="w-1/8 flex flex-col space-y-2 items-center">
+          <div className="w-1/8 flex flex-col space-y-4 items-center">
             {/* Red Close Button */}
-            <CloseButton onClose={handleCloseAISummary} /> {/* Using the new component */}
+            <CloseButton onClose={handleCloseAISummary} />
             
+            {/* Redo Button */}
+            <RedoButton onRedo={handleAIClick} />
+
             {/* Character Limit Slider */}
             <CharacterLimit charLimit={charLimit} setCharLimit={setCharLimit} />
           </div>
-        )}
+         )}     
+              
+              
+
+        
       </div>
         
       {/* Input Bar and Buttons */}
-      <div className="flex items-center space-x-5 pl-2 pr-2 bg-white relative z-10">
-        <input
-          type="text"
-          className="flex-grow bg-offwhite border border-outline rounded-xl p-2 focus:outline-none"
-          placeholder={placeholder || `Enter text...`}
-          value={inputValue}
-          onChange={handleInputChange}
-        />
+      <div
+        className={`absolute bottom-0 w-full px-4 py-3 flex items-center space-x-5 transition-all ${
+          showAISummary
+            ? "bg-white " // Styles when AI summary is shown
+            : "bg-white " // Styles when AI summary is hidden
+        }`}
+      >
+      {/* <div className="flex items-center space-x-5 pl-2 pr-2 bg-white relative z-10"> */}
+        <div className="relative w-full">
+          <input
+            type="text"
+            className="w-full pr-16 bg-offwhite border border-outline rounded-xl p-2 focus:outline-none pr-32"
+            placeholder={placeholder || `Enter text...`}
+            value={inputValue}
+            onChange={handleInputChange}
+          />
+          <span className="absolute right-4 top-1/2 transform -translate-y-1/2 pr-6 text-gray-600 text-sm">
+            {inputValue.length}/{charLimit}
+          </span>
+        </div>
         <button
-          className="absolute right-20 bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md"
+          className="absolute right-16 bg-offwhite border border-outline p-2 rounded-xl space-x-2hover:bg-outline shadow-md"
           onClick={handleAIClick}
         >
           <Sparkles />

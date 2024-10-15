@@ -27,7 +27,7 @@ export default function Home() {
               <div className="space-y-5">
                 {Array.from({ length: 20 }).map((_, index) => (
                   <div key={index} className="h-12 bg-white border-b shadow-sm">
-                    <span className="flex flex row">
+                    <span className="flex flex-row">
                       <div className="h-9 w-9 bg-gray-300 rounded-full ml-7 content-center"></div>
                       <div>
                         <div className="h-2 w-28 bg-gray-300 rounded-full ml-10"></div>
@@ -58,10 +58,12 @@ export default function Home() {
               </div>
               
               {/* InputTextBar container */}
-              <div className="absolute bottom-0 left-0 w-full bg-white h-24 px-4 shadow-2xl place-content-center">
+              <div className="absolute bottom-0 left-0 w-full bg-white px-4 shadow-2xl place-content-center">
                 <InputTextBar />
               </div>
+
             </div>
+
           </div>
         </div>
       </div>

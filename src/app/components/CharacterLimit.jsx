@@ -2,7 +2,7 @@ import React from 'react';
 
 const CharacterLimit = ({ charLimit, setCharLimit }) => {
   return (
-    <div className="flex justify-center mt-5 relative w-20 h-16 border border-outline rounded-xl">
+    <div className="flex justify-center mt-5 relative w-16 h-16 border border-outline rounded-xl">
       {/* Slider */}
       <div
         className={`absolute w-full h-8 bg-white border border-outline rounded-xl transition-transform duration-300 ease-in-out transform ${
