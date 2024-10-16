@@ -5,9 +5,8 @@ import CloseButton from "./CloseButton";
 import RedoButton from "./RedoButton";
 import { ArrowUp, Sparkles } from "lucide-react";
 
-const InputTextBar = ({ placeholder }) => {
+const InputTextBar = ({ placeholder, showAISummary, setShowAISummary }) => {
   const [inputValue, setInputValue] = useState("");
-  const [showAISummary, setShowAISummary] = useState(false);
   const [summary, setSummary] = useState(""); // To store the summary
   const [isLoading, setIsLoading] = useState(false); // To track loading state
   const [charLimit, setCharLimit] = useState(160); // Default character limit to 160
@@ -66,7 +65,7 @@ const InputTextBar = ({ placeholder }) => {
 
   return (
     <div className="w-full relative bg-white pt-4 absolute bottom-0 space-y-3">
-      <div className="flex justify-between items-start space-x-4 absolute bottom-20 p-2 bg-white w-full">
+      <div className="flex justify-between items-start space-x-4 absolute bottom-20 p-2 w-full">
         {/* AI Summary Display */}
         {showAISummary && (
           <div className="flex-grow">
@@ -95,12 +94,7 @@ const InputTextBar = ({ placeholder }) => {
         
       {/* Input Bar and Buttons */}
       <div
-        className={`absolute bottom-0 w-full px-2 py-3 flex items-center space-x-5 transition-all ${
-          showAISummary
-            ? "bg-white " // Styles when AI summary is shown
-            : "bg-white " // Styles when AI summary is hidden
-        }`}
-      >
+        className="absolute bottom-0 w-full px-2 py-3 flex items-center space-x-5 transition-all">
       {/* <div className="flex items-center space-x-5 pl-2 pr-2 bg-white relative z-10"> */}
         <div className="relative w-full">
           <input
