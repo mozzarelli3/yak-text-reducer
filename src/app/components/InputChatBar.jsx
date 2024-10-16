@@ -12,11 +12,13 @@ const InputTextBar = ({ placeholder }) => {
   const [isLoading, setIsLoading] = useState(false); // To track loading state
   const [charLimit, setCharLimit] = useState(160); // Default character limit to 160
 
+  // User types into input field
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
   };
 
+  // User clicks AI Summary Icon button
   const handleAIClick = async () => {
     setIsLoading(true); // Set loading to true
     setShowAISummary(true); // Show the summary display immediately
@@ -45,16 +47,22 @@ const InputTextBar = ({ placeholder }) => {
     }
   };
 
+  // Hides AI summary and clears it when the user clicks close section button
   const handleCloseAISummary = () => {
     setShowAISummary(false);  // Hide the summary display
     setSummary(''); // Reset the summary state
   };
 
+  // Replaces the user's original input with the AI-generated summary and hides the summary display
   const handleConfirm = () => {
     setInputValue(summary);
     setShowAISummary(false);  // Hide the summary display when confirmed
     setSummary(''); // Reset the summary state
   };
+
+
+  // ----------------------------------------------------------------------------------------------------------------------------------
+
 
   return (
     <div className="w-full relative bg-white pt-4 absolute bottom-0 space-y-3">
