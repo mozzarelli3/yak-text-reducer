@@ -51,6 +51,7 @@ const InputTextBar = ({ placeholder }) => {
   };
 
   const handleConfirm = () => {
+    setInputValue(summary);
     setShowAISummary(false);  // Hide the summary display when confirmed
     setSummary(''); // Reset the summary state
   };
