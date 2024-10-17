@@ -12,8 +12,13 @@ const SummaryDisplay = ({ summary, isLoading, onConfirm }) => {
 
       {/* Confirm button */}
       <button
-        className="absolute bottom-4 right-4 bg-paleyellow border border-outline px-4 py-2 rounded-lg hover:bg-yakyellow shadow-md place-content-end"
+        className={`absolute bottom-4 right-4 bg-paleyellow border border-outline px-4 py-2 rounded-lg place-content-end ${
+          isLoading
+            ? "text-gray-500 cursor-not-allowed"
+            : "hover:bg-yakyellow shadow-md"
+        }`}
         onClick={onConfirm}
+        disabled={isLoading}
       >
         Confirm
       </button>

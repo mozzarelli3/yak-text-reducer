@@ -1,19 +1,28 @@
+import { render, fireEvent } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import InputChatBar from './InputChatBar';
+import React from 'react';
 
-
-
+describe('InputChatBar Component', () => {
+  it('should allow user to type in text input', () => {
+    // test code
+  });
+});
 
 // Tests:
     // Test typing into the input field
-    import { render, fireEvent } from '@testing-library/react';
-    import InputChatBar from './InputChatBar';
+    describe('InputTextBar Component', () => {
+      it('should allow user to type in text input', () => {
+        const { getByPlaceholderText } = render(<InputChatBar />);
+        const inputElement = getByPlaceholderText('Enter text...');
     
-    test('allows user to type in text input', () => {
-      const { getByPlaceholderText } = render(<InputChatBar />);
-      const inputElement = getByPlaceholderText('Enter text...');
-      fireEvent.change(inputElement, { target: { value: 'Sample text' } });
-      expect(inputElement.value).toBe('Sample text');
+        // Simulate typing into the input field
+        fireEvent.change(inputElement, { target: { value: 'Sample text' } });
+    
+        // Check that the input value is updated
+        expect(inputElement.value).toBe('Sample text');
+      });
     });
-
 
 
     // // Test button click functionality - ensure the summarisation button works and triggers the API call
@@ -52,4 +61,3 @@
     //     await findByText('Shortened summary');  // Assuming the API call resolves
     //   });
       
-

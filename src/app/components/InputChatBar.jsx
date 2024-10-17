@@ -10,6 +10,7 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary }) => {
   const [summary, setSummary] = useState(""); // To store the summary
   const [isLoading, setIsLoading] = useState(false); // To track loading state
   const [charLimit, setCharLimit] = useState(160); // Default character limit to 160
+  const [temperature, setTemperature] = useState(0.3); // Default temperature
 
   // User types into input field
   const handleInputChange = (event) => {
@@ -29,7 +30,7 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ text: inputValue, charLimit }),  // Send input text to the backend
+        body: JSON.stringify({ text: inputValue, charLimit, temperature }),  // Send input text to the backend
       });
 
       if (!response.ok) {
@@ -59,6 +60,11 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary }) => {
     setSummary(''); // Reset the summary state
   };
 
+  const handleRetry = () => {
+    setTemperature(0.3);  // Increase temperature on retry to make the response more creative
+    handleAIClick();  // Retry AI summarization with updated temperature
+  };
+
 
   // ----------------------------------------------------------------------------------------------------------------------------------
 
@@ -84,7 +90,7 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary }) => {
             <CloseButton onClose={handleCloseAISummary} />
             
             {/* Redo Button */}
-            <RedoButton onRedo={handleAIClick} />
+            <RedoButton onRedo={handleRetry} />
 
             {/* Character Limit Slider */}
             <CharacterLimit charLimit={charLimit} setCharLimit={setCharLimit} />
