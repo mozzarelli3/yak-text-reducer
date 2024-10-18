@@ -22,15 +22,15 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary }) => {
   const handleAIClick = async () => {
     setIsLoading(true); // Set loading to true
     setShowAISummary(true); // Show the summary display immediately
-    
+
     try {
       // Make a POST request to the backend summarisation API
-      const response = await fetch('https://ai-api-7i1d.onrender.com/summarise', {
+      const response = await fetch("https://ai-api-7i1d.onrender.com/summarise", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ text: inputValue, charLimit, temperature }),  // Send input text to the backend
+        body: JSON.stringify({ text: inputValue, charLimit, temperature }),
       });
 
       if (!response.ok) {
@@ -115,14 +115,15 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary }) => {
           </span>
         </div>
         
-        {inputValue.length >= 160 && (
+        {/* {inputValue.length >= 160 && ( */}
         <button
+          data-testid="summarise-button"
           className="absolute right-16 bg-offwhite border border-outline p-2 rounded-xl space-x-2hover:bg-outline shadow-md"
           onClick={handleAIClick}
         >
           <Sparkles />
         </button>
-        )}
+        {/* )} */}
         
         <button className="bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md">
           <ArrowUp />

@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useState } from "react";
 import InputTextBar from "./components/InputChatBar";
 
+const apiUrl = process.env.API_URL;
+
 export default function Home() {
   const [showAISummary, setShowAISummary] = useState(false);
   
