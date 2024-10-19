@@ -1,6 +1,11 @@
 import { render, fireEvent, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { describe, it, expect, vi } from 'vitest';
+// import * as utils from './utils'; // Import all exports from utils
+// 
 import InputChatBar from './InputChatBar';
+import * as InputChatBarModule from './InputChatBar';
+
 import React from 'react';
 
 describe('InputChatBar Component', () => {
@@ -25,37 +30,86 @@ describe('InputChatBar Component', () => {
     });
 
 
+
+
+
+
+
+// -------------------------------- TEST THAT DOES NOT WORK --------------------------------
+
+// JOSH - I am trying to write a test that checks to see that the handleAIClick function is triggered once the AI summary button (the one on line 121 in the InputChatBar.jsx file)
+// I have been playing around with it and trying different things so it isn't in a good state sorry but good luck
+// If you can't crack it that is okay, I'm going to get Jimmy (yakchat boss) to look at it next week
+
+
 // Test button click functionality - ensure the summarisation button works and triggers the API call
   describe('Summarise button', () => {
     it('handles AI summary when clicked', async () => {
-      const handleAIClick = vi.fn(); // Vitest's vi.fn() for mocking
-      const setShowAISummary = vi.fn(); // Mock function for setShowAISummary
-      const setIsLoading = vi.fn(); // Mock function for setIsLoading
-      const setSummary = vi.fn(); // Mock function for setSummary
+      // const testLogSpy = vi.spyOn(InputChatBarModule, 'testLog');
 
-      const { getByTestId, getByPlaceholderText } = await render(
+      // render(<InputChatBar />);
+  
+      const handleAIClick = vi.fn(); // Vitest's vi.fn() for mocking
+      const testLog = vi.fn()
+      const setShowAISummary = vi.fn(); // Mock function for setShowAISummary
+      // const setIsLoading = vi.fn(); // Mock function for setIsLoading
+      // const setSummary = vi.fn(); // Mock function for setSummary
+
+      const { findByRole, getByPlaceholderText } = await render(
       <InputChatBar 
         handleAIClick={handleAIClick} 
+        testLog={testLog} 
+
         setShowAISummary={setShowAISummary} 
-        setIsLoading={setIsLoading} 
-        setSummary={setSummary}
+        // setIsLoading={setIsLoading} 
+        // setSummary={setSummary}
       />
     );
 
       // Simulate entering 160 characters in the input field
-      const input = getByPlaceholderText('Enter text...');
-      fireEvent.change(input, { target: { value: 'a'.repeat(160) } });
+      // const input = getByPlaceholderText('Enter text...');
+      // fireEvent.change(input, { target: { value: 'a'.repeat(161) } });
 
       // Ensure the button is rendered
-      const button = getByTestId('summarise-button');
+      // const button = getByTestId('summarise-button');
+      const button = await screen.findByRole('button', {name: 'sparkles'});
+
+      console.log(button.onclick); // Should point to the correct function
+
+      console.log("FOUND BUTTON")
+
       expect(button).to.exist;
 
+      console.log("BUTTON EXISTS")
+
+      // console.log(button);
+
       // Simulate button click
-      fireEvent.click(button);
+      await userEvent.click(button);
+
+      console.log("BUTTON CLICKED")
+
+
+
+      console.log("STARTING EXPECT CALL");
       
-      expect(handleAIClick).toHaveBeenCalled();
+      expect(handleAIClick).toBeCalled();
+
+      console.log("FINISHED EXPECT CALL");
     });
   });
+
+
+
+
+
+
+
+
+
+
+ // -------------- Ignore these below :D --------------
+
 
 
 // Test input validation - ensure that the text input is not empty before making the API call

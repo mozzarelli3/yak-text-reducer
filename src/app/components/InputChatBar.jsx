@@ -114,16 +114,27 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary }) => {
             {inputValue.length}/{charLimit}
           </span>
         </div>
-        
-        {/* {inputValue.length >= 160 && ( */}
+
+
+
+
+        {/* ----------------------- BUTTON I AM TESTING --------------- */}
+
+        {inputValue.length >= 160 && (
         <button
           data-testid="summarise-button"
+          aria-label="sparkles"
           className="absolute right-16 bg-offwhite border border-outline p-2 rounded-xl space-x-2hover:bg-outline shadow-md"
           onClick={handleAIClick}
         >
           <Sparkles />
         </button>
-        {/* )} */}
+        )}
+
+
+
+
+
         
         <button className="bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md">
           <ArrowUp />
