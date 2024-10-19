@@ -5,7 +5,7 @@ import CloseButton from "./CloseButton";
 import RedoButton from "./RedoButton";
 import { ArrowUp, Sparkles } from "lucide-react";
 
-const InputTextBar = ({ placeholder, showAISummary, setShowAISummary }) => {
+const InputTextBar = ({ placeholder, showAISummary, setShowAISummary, handleAIClick }) => {
   const [inputValue, setInputValue] = useState("");
   const [summary, setSummary] = useState(""); // To store the summary
   const [isLoading, setIsLoading] = useState(false); // To track loading state
@@ -19,7 +19,7 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary }) => {
   };
 
   // User clicks AI Summary Icon button
-  const handleAIClick = async () => {
+  handleAIClick = handleAIClick || (async () => {
     setIsLoading(true); // Set loading to true
     setShowAISummary(true); // Show the summary display immediately
 
@@ -45,7 +45,7 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary }) => {
     } finally {
       setIsLoading(false); // Set loading to false once fetching is done
     }
-  };
+  });
 
   // Hides AI summary and clears it when the user clicks close section button
   const handleCloseAISummary = () => {

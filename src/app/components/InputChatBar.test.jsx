@@ -43,61 +43,50 @@ describe('InputChatBar Component', () => {
 
 
 // Test button click functionality - ensure the summarisation button works and triggers the API call
-  describe('Summarise button', () => {
-    it('handles AI summary when clicked', async () => {
-      // const testLogSpy = vi.spyOn(InputChatBarModule, 'testLog');
+describe('Summarise button', () => {
+  it('handles AI summary when clicked', async () => {
+    // const testLogSpy = vi.spyOn(InputChatBarModule, 'testLog');
 
-      // render(<InputChatBar />);
-  
-      const handleAIClick = vi.fn(); // Vitest's vi.fn() for mocking
-      const testLog = vi.fn()
-      const setShowAISummary = vi.fn(); // Mock function for setShowAISummary
-      // const setIsLoading = vi.fn(); // Mock function for setIsLoading
-      // const setSummary = vi.fn(); // Mock function for setSummary
+    // render(<InputChatBar />);
 
-      const { findByRole, getByPlaceholderText } = await render(
-      <InputChatBar 
-        handleAIClick={handleAIClick} 
-        testLog={testLog} 
 
-        setShowAISummary={setShowAISummary} 
-        // setIsLoading={setIsLoading} 
-        // setSummary={setSummary}
+
+    const handleAIClick = vi.fn(); // Vitest's vi.fn() for mocking
+    const testLog = vi.fn()
+    const setShowAISummary = vi.fn(); // Mock function for setShowAISummary
+    // const setIsLoading = vi.fn(); // Mock function for setIsLoading
+    // const setSummary = vi.fn(); // Mock function for setSummary
+
+    const { findByRole, getByPlaceholderText } = await render(
+      <InputChatBar
+        handleAIClick={handleAIClick}
+        testLog={testLog}
+
+        setShowAISummary={setShowAISummary}
+      // setIsLoading={setIsLoading} 
+      // setSummary={setSummary}
       />
     );
 
-      // Simulate entering 160 characters in the input field
-      // const input = getByPlaceholderText('Enter text...');
-      // fireEvent.change(input, { target: { value: 'a'.repeat(161) } });
+    // Simulate entering 160 characters in the input field
+    const inputElement = getByPlaceholderText('Enter text...');
+    fireEvent.change(inputElement, { target: { value: 'a'.repeat(161) } });
 
-      // Ensure the button is rendered
-      // const button = getByTestId('summarise-button');
-      const button = await screen.findByRole('button', {name: 'sparkles'});
+    // Ensure the button is rendered
+    const button = await screen.findByTestId('summarise-button');
+    expect(button).to.exist;
 
-      console.log(button.onclick); // Should point to the correct function
+    // Simulate button click
+    await userEvent.click(button);
+    console.log("BUTTON CLICKED")
 
-      console.log("FOUND BUTTON")
+    console.log("STARTING EXPECT CALL");
 
-      expect(button).to.exist;
+    expect(handleAIClick).toHaveBeenCalled();
 
-      console.log("BUTTON EXISTS")
-
-      // console.log(button);
-
-      // Simulate button click
-      await userEvent.click(button);
-
-      console.log("BUTTON CLICKED")
-
-
-
-      console.log("STARTING EXPECT CALL");
-      
-      expect(handleAIClick).toBeCalled();
-
-      console.log("FINISHED EXPECT CALL");
-    });
+    console.log("FINISHED EXPECT CALL");
   });
+});
 
 
 
