@@ -20,6 +20,47 @@ body {
   font-family: Arial, Helvetica, sans-serif; */
 }
 
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.interface {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin; /* For Firefox */
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 255, 0.5);
+  border-radius: 10px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

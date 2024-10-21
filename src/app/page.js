@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <div className="min-h-screen overflow-hidden">
-        <div className="interface">
+        <div className="interface flex flex-grow">
           <div className="min-h-screen flex">
 
             {/* --- Left Sidebar --- */}

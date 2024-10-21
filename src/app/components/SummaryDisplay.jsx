@@ -2,12 +2,12 @@ import React from 'react';
 
 const SummaryDisplay = ({ summary, isLoading, onConfirm }) => {
   return (
-    <div className="bg-paleyellow p-4 h-44 border border-outline rounded-xl relative">
+    <div className="bg-paleyellow p-4 h-44 border border-outline rounded-xl relative overflow-hidden">
       <h2 className="text-lg font-bold">Summary</h2>
       {isLoading ? (
         <p>Loading summary...</p>
       ) : (
-        <p className="pr-28">{summary}</p>
+        <p className="pr-28 overflow-y-auto max-h-28">{summary}</p>
       )}
 
       {/* Confirm button */}

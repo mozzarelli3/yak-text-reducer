@@ -103,12 +103,13 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary, handleAICl
         className="absolute bottom-0 w-full px-2 py-3 flex items-center space-x-5 transition-all">
       {/* <div className="flex items-center space-x-5 pl-2 pr-2 bg-white relative z-10"> */}
         <div className="relative w-full">
-          <input
+          <textarea
             type="text"
-            className="w-full pr-16 bg-offwhite border border-outline rounded-xl p-2 focus:outline-none pr-32"
+            className="w-full pr-32 bg-offwhite border border-outline rounded-xl p-2 focus:outline-none pr-32 overflow-x-auto scrollbar-thin"
             placeholder={placeholder || `Enter text...`}
             value={inputValue}
             onChange={handleInputChange}
+            style={{ resize: "none", whiteSpace: "normal" }}
           />
           <span className="absolute right-4 top-1/2 transform -translate-y-1/2 pr-6 text-gray-600 text-sm">
             {inputValue.length}/{charLimit}
