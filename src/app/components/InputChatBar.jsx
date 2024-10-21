@@ -105,7 +105,7 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary, handleAICl
         <div className="relative w-full">
           <textarea
             type="text"
-            className="w-full pr-32 bg-offwhite border border-outline rounded-xl p-2 focus:outline-none pr-32 overflow-x-auto scrollbar-thin"
+            className="w-full h-11 pr-32 bg-offwhite border border-outline rounded-xl p-2 focus:outline-none pr-32 overflow-x-auto scrollbar-thin"
             placeholder={placeholder || `Enter text...`}
             value={inputValue}
             onChange={handleInputChange}
@@ -116,10 +116,6 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary, handleAICl
           </span>
         </div>
 
-
-
-
-        {/* ----------------------- BUTTON I AM TESTING --------------- */}
 
         {inputValue.length >= 160 && (
         <button
@@ -133,10 +129,6 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary, handleAICl
         )}
 
 
-
-
-
-        
         <button className="bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md">
           <ArrowUp />
         </button>
