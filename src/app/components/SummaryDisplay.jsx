@@ -1,4 +1,5 @@
 import React from 'react';
+import { Check } from 'lucide-react';
 
 const SummaryDisplay = ({ summary, isLoading, onConfirm }) => {
   return (
@@ -20,7 +21,9 @@ const SummaryDisplay = ({ summary, isLoading, onConfirm }) => {
         onClick={onConfirm}
         disabled={isLoading}
       >
-        Confirm
+        {/* Text changes based on screen size */}
+        <span className="block sm:hidden"><Check /></span> {/* For mobile */}
+        <span className="hidden sm:block">Accept</span> {/* For larger screens */}
       </button>
     </div>
   );
