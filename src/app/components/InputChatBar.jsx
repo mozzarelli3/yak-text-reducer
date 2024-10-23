@@ -105,7 +105,7 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary, handleAICl
         <div className="relative w-full">
           <textarea
             type="text"
-            className="w-full h-11 pr-32 bg-offwhite border border-outline rounded-xl p-2 focus:outline-none pr-32 overflow-x-auto scrollbar-thin"
+            className="w-full h-11 pr-32 bg-offwhite border border-outline rounded-xl p-2 focus:outline-none pr-32 overflow-x-auto scrollbar-thin flex items-center"
             placeholder={placeholder || `Enter text...`}
             value={inputValue}
             onChange={handleInputChange}
@@ -121,7 +121,7 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary, handleAICl
         <button
           data-testid="summarise-button"
           aria-label="sparkles"
-          className="absolute right-16 bg-offwhite border border-outline p-2 rounded-xl space-x-2hover:bg-outline shadow-md"
+          className="absolute right-16 bg-offwhite border border-outline p-2 rounded-xl space-x-2hover:bg-outline shadow-md flex items-center"
           onClick={handleAIClick}
         >
           <Sparkles />
@@ -129,7 +129,7 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary, handleAICl
         )}
 
 
-        <button className="bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md">
+        <button className="bg-offwhite border border-outline p-2 rounded-xl hover:bg-outline shadow-md flex items-center">
           <ArrowUp />
         </button>
       </div>
