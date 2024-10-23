@@ -63,7 +63,7 @@ export default function Home() {
               </div>
 
               {/* --- AI summary feature --- */}
-              <div className={`w-full transition-all p-4 absolute bottom-4 ${
+              <div className={`w-full transition-all p-4 absolute bottom-0 ${
                 showAISummary ? "bg-white h-72" : "bg-white h-20"
               }`}>
                 {/* InputTextBar container */}
