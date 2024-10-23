@@ -105,7 +105,7 @@ const InputTextBar = ({ placeholder, showAISummary, setShowAISummary, handleAICl
         <div className="relative w-full">
           <textarea
             type="text"
-            className="w-full h-11 pr-32 bg-offwhite border border-outline rounded-xl p-2 focus:outline-none pr-32 overflow-x-auto scrollbar-thin flex items-center"
+            className="w-full h-11 pr-32 bg-offwhite border border-outline rounded-xl p-2 focus:outline-none pr-32 overflow-x-auto scrollbar-thin flex items-center text-sm sm:text-base"
             placeholder={placeholder || `Enter text...`}
             value={inputValue}
             onChange={handleInputChange}

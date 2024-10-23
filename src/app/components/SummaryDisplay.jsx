@@ -8,7 +8,7 @@ const SummaryDisplay = ({ summary, isLoading, onConfirm }) => {
       {isLoading ? (
         <p>Loading summary...</p>
       ) : (
-        <p className="pr-28 overflow-y-auto max-h-28">{summary}</p>
+        <p className="pr-28 overflow-y-auto max-h-28 text-sm sm:text-base" >{summary}</p>
       )}
 
       {/* Confirm button */}
